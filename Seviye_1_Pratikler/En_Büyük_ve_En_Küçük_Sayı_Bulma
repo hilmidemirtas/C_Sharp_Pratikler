@@ -19,9 +19,9 @@ namespace furkanladeneme
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Random random = new Random();
-            int sayi;
-            for (int i = 1; i <= 20; i++)
+            Random random = new Random();   //Öncelikle radom sayı üretiyoruz
+            int sayi; 
+            for (int i = 1; i <= 20; i++)  //Random ürettiğimiz sayılardan 20 tanesini listBox1'in içine eklemesini istiyoruz
             {
                 sayi = random.Next(980, 1000);
                 listBox1.Items.Add(sayi);
@@ -30,14 +30,19 @@ namespace furkanladeneme
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int kucuk, buyuk;
+            int kucuk, buyuk;  //büyük ve küçük isimli iki tane int tanımlıyoruz
             
-            kucuk = Convert.ToInt32(listBox1.Items[0]);
-            buyuk = Convert.ToInt32(listBox1.Items[0]);
-            int sayi;
-            for (int i = 0; i < listBox1.Items.Count; i++)
+            kucuk = Convert.ToInt32(listBox1.Items[0]);  //0'ıncı indisdeki sayıyı küçük sayı kabul etmesini istiyoruz
+            buyuk = Convert.ToInt32(listBox1.Items[0]);  //0'ıncı indisdeki sayıyı büyük sayı kabul etmesini istiyoruz
+            int sayi; //Yine sayi isimli bir int tanımlıyoruz
+            for (int i = 0; i < listBox1.Items.Count; i++)  //listBox'daki sayılarım kadar saymasını istiyoruz
             {
-                sayi = Convert.ToInt32(listBox1.Items[i]);
+                sayi = Convert.ToInt32(listBox1.Items[i]); 
+                /* 
+               Sayi integerımızı i değişkenine atayıp; başta kabul ettiğimiz sayıdan büyük mü, küçük mü diye kontrol etmesini sağlıyoruz her seferinde
+               büyük için ayrı, küçük için ayrı dönüyor. eğer bu i değişkeni (yani sayı integerımız) buyuk diye kabul ettiğimiz sayıdan buyukse (en büyükse) buyuk,
+               küçükse (en küçükse) küçük kabul ediliyor.
+               */
 
                 if (buyuk < sayi)
                 {
@@ -51,7 +56,7 @@ namespace furkanladeneme
                 }
 
             }
-            label1.Text =  Convert.ToString(buyuk);
+            label1.Text =  Convert.ToString(buyuk); //yazdırma işlemlerini yapıyoruz
             label2.Text = Convert.ToString(kucuk);
         }
     }
